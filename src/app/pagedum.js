@@ -3,8 +3,16 @@
 import { useState, useRef } from "react";
 import { GoogleGenerativeAI } from "@google/generative-ai";
 
-const childInfo = `
-You will roleplay as a character to a child. Your duty is to play the role of a charater with a speciily-abled child. You will be Superman while the specially abled child is Batman. This is to encourage interest in the child.
+const businessInfo = `
+General Business Information:
+Website: www.yourbusiness.com
+
+Return Policy:
+Customers can return products within 30 days of purchase with the original receipt.
+Items must be unused and in their original packaging.
+Refunds will be processed to the original payment method.
+
+Support Email: support@yourbusiness.com
 `;
 
 // IMPORTANT: Put your actual API key here as a string
@@ -13,7 +21,7 @@ const API_KEY = "AIzaSyAOzfp-q9ZbJxfZBqArd7XW5nq1GDZgrGU";
 const genAI = new GoogleGenerativeAI(API_KEY);
 const model = genAI.getGenerativeModel({
   model: "gemini-2.0-flash",
-  systemInstruction: childInfo,
+  systemInstruction: businessInfo,
 });
 
 export default function ChatPage() {
